@@ -5,6 +5,8 @@ coqui-tts[languages]>=0.24.2
 transformers>=4.57,<5
 langcodes>=3.4
 hangul-romanize==0.1.0
+# FIX
+av<16
 
 cutlet
 fugashi[unidic-lite]
