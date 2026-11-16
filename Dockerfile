@@ -22,7 +22,10 @@ RUN if [ "$UFT_CPU_TORCH" = "1" ]; then \
     fi
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv pip install --system -r requirements.txt
-
+# FIX
+RUN uv pip install --system nvidia-cublas-cu12 "nvidia-cudnn-cu12==9.*"
+ENV LD_LIBRARY_PATH=/usr/local/lib/python3.12/site-packages/nvidia/cublas/lib:/usr/local/lib/python3.12/site-packages/nvidia/cudnn/lib
+# FIX end
 # Copy the application files
 COPY . .
 
